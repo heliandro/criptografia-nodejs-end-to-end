@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import JSEncrypt from 'jsencrypt';
+import './App.css'
 
 function App() {
   const [data, setData] = useState('');
@@ -51,22 +52,27 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="encryption-container">
       <h1>End-to-End Encryption Example</h1>
       <textarea
+        className="input-field"
         value={data}
         onChange={(e) => setData(e.target.value)}
         placeholder="Enter data to encrypt"
       />
-      <button onClick={encryptData}>Encrypt</button>
-      <div>
+      <button className="action-button" onClick={encryptData}>
+        Encrypt
+      </button>
+      <div className="section">
         <h2>Encrypted Data</h2>
-        <textarea value={encryptedData ? encryptedData : ''} readOnly />
+        <textarea className="output-field" value={encryptedData || ''} readOnly />
       </div>
-      <button onClick={sendEncryptedData}>Send Encrypted Data</button>
-      <div>
+      <button className="action-button" onClick={sendEncryptedData}>
+        Send Encrypted Data
+      </button>
+      <div className="section">
         <h2>Transfer Result</h2>
-        <p>{transferResult}</p>
+        <p className="transfer-result">{transferResult}</p>
       </div>
     </div>
   );
