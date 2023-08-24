@@ -17,7 +17,6 @@ function App() {
       encrypt.setPublicKey(publicKey);
 
       const messageEncrypted = encrypt.encrypt(data);
-      // console.log('encrypte::', messageEncrypted)
 
       // const decrypt = new JSEncrypt()
       // decrypt.setPrivateKey(privateKey)
@@ -37,9 +36,6 @@ function App() {
         console.error('No encrypted data available.');
         return;
       }
-      
-      // const decrypt = new JSEncrypt();
-      // de
 
       const response = await axios.post('http://localhost:3001/transfer', {
         messageEncrypted: encryptedData
